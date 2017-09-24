@@ -12,6 +12,6 @@ public interface CustomerService {
 	List<Customer> findAll();
 	Customer findById(Long id);
 	Customer findByName(String name);
-	boolean isCustomeExist(Long id);
+	boolean isCustomeExist(Customer customer);
 	
 }

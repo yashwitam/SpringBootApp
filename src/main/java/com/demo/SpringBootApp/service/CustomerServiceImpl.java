@@ -47,8 +47,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public boolean isCustomeExist(Long id) {
-		return customerRepository.exists(id);
+	public boolean isCustomeExist(Customer customer) {
+		return findByName(customer.getFirstName()) != null ;
 	}
 
 }
