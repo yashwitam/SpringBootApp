@@ -23,7 +23,7 @@ import com.demo.SpringBootApp.util.CustomErrorType;
 @CrossOrigin
 public class CustomerController {
 	
-	public static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
 	@Autowired
 	CustomerService customerService;
@@ -35,14 +35,12 @@ public class CustomerController {
 		logger.info("Getting all customer profiles.");
 		
 		List<Customer> customerList = customerService.findAll();
-		
-
 		if(null == customerList || customerList.isEmpty()){
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
-		logger.info("Customer profiles size:" + customerList.size());
 
-		return new ResponseEntity<List<Customer>>(customerList, HttpStatus.OK);
+		logger.info("Customer profiles size:" + customerList.size());
+		return new ResponseEntity<>(customerList, HttpStatus.OK);
 	}
 	
 	/* Rest API to retrieve single customer profile. */
